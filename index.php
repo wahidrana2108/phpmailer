@@ -22,7 +22,7 @@
             $password = password_hash($password, PASSWORD_DEFAULT);
 
             function getToken($len=32){
-                return substr(mad5(openssl_random_pseudo_bytes(20)), -$len);
+                return substr(md5(openssl_random_pseudo_bytes(20)), -$len);
             }
             $token = getToken(10);
 
@@ -31,6 +31,8 @@
                 ':email' => $email,
                 ':password' => $password,
                 ':token' => $token));
+
+                echo "Successfully inserted";
             
         }
 
@@ -49,7 +51,7 @@
   <body>
 
     <div class="container mt-5">
-        <form action="/" method="post">
+        <form action="index.php" method="post">
             <h3 class="fw-bolder text-center mb-3">Registration From</h3>
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com" required>
