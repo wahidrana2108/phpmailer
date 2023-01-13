@@ -49,6 +49,9 @@
 
                 
                 try {
+
+                    $send_to = $_POST['email'];
+
                     //Server settings
                     $mail->isSMTP();                                            //Send using SMTP
                     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
@@ -59,8 +62,8 @@
                     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
                   
                     //Recipients
-                    $mail->setFrom('nainai@gmail.com', 'Bhoot');
-                    $mail->addAddress('wahidrana00000@gmail.com');     //Add a recipient
+                    $mail->setFrom('jacquelinechavezkh@gmail.com', 'Bhoot');
+                    $mail->addAddress($send_to);     //Add a recipient
                   
                   
                     //Content
