@@ -66,12 +66,12 @@
                     //Content
                     $mail->isHTML(true);                                  //Set email format to HTML
                     $mail->Subject = 'Here is not the subject';
-                    $mail->Body    = 'This is the HTML message body <b>in bold!</b>' . $email . 'Thank you';
+                    $mail->Body    = 'click the link to activate you account. <a href="http://localhost/phpmailer/verification.php?email=' . $email . '&token=' . $token . '"> Click here</a>';
                   
                     $mail->send();
-                    echo 'Message has been sent';
+                    $output =  'Message has been sent';
                   } catch (Exception $e) {
-                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                    $output =  "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                   }
             
         }
@@ -103,6 +103,8 @@
             </div>
 
             <button type="submit" class="btn btn-primary mt-3">Register</button>
+
+            <?php echo $output; ?>
         </form> 
     </div>
 
